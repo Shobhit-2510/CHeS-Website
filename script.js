@@ -16,6 +16,36 @@ document.querySelectorAll(".reveal").forEach(el => {
 
 
 
+/* hero title moving letters animation */
+const heroTitle = document.querySelector('.hero-title');
+if (heroTitle) {
+    const text = heroTitle.textContent.trim();
+    heroTitle.textContent = '';
+    
+    const words = text.split(' ');
+    let letterIndex = 0;
+    
+    words.forEach((word, wordIndex) => {
+        const wordSpan = document.createElement('span');
+        wordSpan.style.display = 'inline-block';
+        
+        [...word].forEach((char) => {
+            const charSpan = document.createElement('span');
+            charSpan.textContent = char;
+            charSpan.classList.add('moving-letter');
+            // Progressive delay for each letter creates a wave effect
+            charSpan.style.animationDelay = `${0.2 + letterIndex * 0.04}s`;
+            wordSpan.appendChild(charSpan);
+            letterIndex++;
+        });
+        
+        heroTitle.appendChild(wordSpan);
+        if (wordIndex < words.length - 1) {
+            heroTitle.appendChild(document.createTextNode(' '));
+        }
+    });
+}
+
 /* animated counters */
 
 const counters = document.querySelectorAll(".counter")
