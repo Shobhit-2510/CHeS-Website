@@ -3280,6 +3280,90 @@ body.light-mode.resources-page .page-header {
   border-bottom: none;
 }
 
+/* Access ChemE Library Button */
+.access-library-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.8rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(249, 120, 174, 0.4);
+  z-index: 1;
+  width: 100%;
+  animation: pulse-library-btn 2.5s infinite;
+  border: none;
+}
+
+.access-library-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(45deg) translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.access-library-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(249, 120, 174, 0.5);
+  color: #ffffff;
+}
+
+.access-library-btn:hover::after {
+  transform: rotate(45deg) translateY(100%);
+}
+
+.access-library-btn span, .access-library-btn svg {
+  position: relative;
+  z-index: 2;
+}
+
+.access-library-btn svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.access-library-btn:hover svg {
+  transform: translateY(3px);
+}
+
+@keyframes pulse-library-btn {
+  0% {
+    box-shadow: 0 0 0 0 rgba(249, 120, 174, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(249, 120, 174, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 120, 174, 0);
+  }
+}
+
+body.light-mode .access-library-btn {
+  box-shadow: 0 4px 15px rgba(249, 120, 174, 0.3);
+}
+
+body.light-mode .access-library-btn:hover {
+  box-shadow: 0 12px 25px rgba(249, 120, 174, 0.4);
+}
+
 .careers-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
