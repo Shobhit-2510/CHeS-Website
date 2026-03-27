@@ -4566,6 +4566,33 @@ body.light-mode .feature-card:hover {
   box-shadow: 0 15px 40px rgba(249, 120, 174, 0.25) !important;
 }
 
+/* Requested content-alignment adjustments */
+.page-subtitle,
+.section-subtitle,
+.ce-description,
+.ce-opportunity-description,
+.opp-description,
+.team-meta,
+.contacts-description {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Fix heading/subtitle offset specifically noted on Team and Chemical pages */
+body.team-page .section-header,
+body.chemical-engineering-page .section-header {
+  align-items: flex-start;
+}
+
+body.team-page .section-header .section-subtitle,
+body.chemical-engineering-page .section-header .section-subtitle {
+  margin: 0;
+  max-width: none;
+  padding-left: 0;
+  text-indent: 0;
+  text-align: left;
+}
+
 .team-profile {
   animation: scaleIn 0.6s ease-out;
   transition: all 0.3s ease;
